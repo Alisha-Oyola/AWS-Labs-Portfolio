@@ -1,2 +1,2 @@
 # AWS-Labs-Portfolio
-Hands-on labs and projects for AWS Solutions Architect Associate
+Hands-on AWS labs and projects demonstrating cloud skills
