@@ -26,41 +26,37 @@ This lab focuses on designing **highly available and fault-tolerant compute arch
 Demonstrates how to design a resilient compute layer that automatically scales with demand and recovers from instance failures without downtime.
 
 ---
-┌───────────────┐
-│   Internet    │
-│   Traffic     │
-└───────┬───────┘
-        │
-        ▼
-┌───────────────┐
-│ Application   │
-│ Load Balancer │
-│    (ALB)      │
-└───────┬───────┘
-        │
-        ▼
-┌───────────────┐
-│ Target Group  │
-│ Health Checks │
-└───────┬───────┘
-        │
-        ▼
-┌───────────────┐
-│ Auto Scaling  │
-│ Group         │
-│  (Multi-AZ)   │
-└───────┬───────┘
-        │
-        ▼
-┌───────────────┐
-│ EC2 Instances │
-│ Launch        │
-│ Template      │
-└───────────────┘
++----------------+
+|   Internet     |
+|   Traffic      |
++--------+-------+
+         |
+         v
++----------------+
+| Application    |
+| Load Balancer  |
+| (ALB)          |
++--------+-------+
+         |
+         v
++----------------+
+| Target Group   |
+| Health Checks  |
++--------+-------+
+         |
+         v
++----------------+
+| Auto Scaling   |
+| Group          |
+| (Multi-AZ)     |
++--------+-------+
+         |
+         v
++----------------+
+| EC2 Instances  |
+| Launch Template|
++----------------+
 
-
-
-                                    
 ---
 
 ## AWS Services Used
