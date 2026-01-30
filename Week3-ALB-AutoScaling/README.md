@@ -36,6 +36,7 @@ Auto Scaling Group (Multi-AZ)
    ↓
 EC2 Instances (Launch Template)
 
+
 ---
 
 ## AWS Services Used
