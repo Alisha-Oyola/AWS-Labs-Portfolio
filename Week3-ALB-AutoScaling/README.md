@@ -38,7 +38,7 @@ Demonstrates how to design a resilient compute layer that automatically scales w
                │
                ▼
  ┌─────────────────────────────┐
- │        Target Group         │
+ │        Target Group          │
  │      (Health Checks)        │
  └─────────────┬───────────────┘
                │
@@ -53,6 +53,7 @@ Demonstrates how to design a resilient compute layer that automatically scales w
  │       EC2 Instances         │
  │   (Launched via Template)   │
  └─────────────────────────────┘
+
                                     
 ---
 
