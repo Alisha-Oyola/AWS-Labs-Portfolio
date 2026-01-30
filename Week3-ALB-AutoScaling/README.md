@@ -26,30 +26,34 @@ This lab focuses on designing **highly available and fault-tolerant compute arch
 Demonstrates how to design a resilient compute layer that automatically scales with demand and recovers from instance failures without downtime.
 
 ---
-
-                    +---------------+
-                    |   Internet    |
-                    +---------------+
-                            |
-                            v
-            +----------------------------------+
-            |  Application Load Balancer (ALB)|
-            +----------------------------------+
-                            |
-                            v
-            +----------------------------------+
-            |     Target Group (HTTP :80)      |
-            |        Health Checks             |
-            +----------------------------------+
-                    |                   |
-                    v                   v
-        +--------------------+   +--------------------+
-        |    EC2 Instance    |   |    EC2 Instance    |
-        | (Auto Scaling)     |   | (Auto Scaling)     |
-        +--------------------+   +--------------------+
-
-                                     
-
+ ┌─────────────────────────────┐
+ │        Internet Traffic     │
+ └─────────────┬───────────────┘
+               │
+               ▼
+ ┌─────────────────────────────┐
+ │ Application Load Balancer   │
+ │            (ALB)            │
+ └─────────────┬───────────────┘
+               │
+               ▼
+ ┌─────────────────────────────┐
+ │        Target Group         │
+ │      (Health Checks)        │
+ └─────────────┬───────────────┘
+               │
+               ▼
+ ┌─────────────────────────────┐
+ │      Auto Scaling Group     │
+ │        (Multi-AZ)           │
+ └─────────────┬───────────────┘
+               │
+               ▼
+ ┌─────────────────────────────┐
+ │       EC2 Instances         │
+ │   (Launched via Template)   │
+ └─────────────────────────────┘
+                                    
 ---
 
 ## AWS Services Used
