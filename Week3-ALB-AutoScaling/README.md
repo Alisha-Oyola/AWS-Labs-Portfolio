@@ -26,7 +26,6 @@ This lab focuses on designing **highly available and fault-tolerant compute arch
 Demonstrates how to design a resilient compute layer that automatically scales with demand and recovers from instance failures without downtime.
 
 ---
-
                     ┌───────────────┐
                     │   Internet    │
                     └───────┬───────┘
@@ -47,8 +46,10 @@ Demonstrates how to design a resilient compute layer that automatically scales w
             │                               │
             ▼                               ▼
     ┌─────────────────┐           ┌─────────────────┐
-    │   EC2 Instance
-
+    │   EC2 Instance   │           │   EC2 Instance   │
+    │ (Auto Scaling)   │           │ (Auto Scaling)   │
+    └─────────────────┘           └─────────────────┘
+                  
 
 ---
 
