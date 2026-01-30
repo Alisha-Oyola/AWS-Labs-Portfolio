@@ -27,30 +27,28 @@ Demonstrates how to design a resilient compute layer that automatically scales w
 
 ---
 
-## Architecture Overview
+                    ┌───────────────┐
+                    │   Internet    │
+                    └───────┬───────┘
+                            │
+                            ▼
+                ┌─────────────────────────┐
+                │ Application Load Balancer│
+                │          (ALB)           │
+                └───────────┬─────────────┘
+                            │
+                            ▼
+                ┌─────────────────────────┐
+                │     Target Group         │
+                │   (Health Checks)        │
+                └───────────┬─────────────┘
+                            │
+            ┌───────────────┴───────────────┐
+            │                               │
+            ▼                               ▼
+    ┌─────────────────┐           ┌─────────────────┐
+    │   EC2 Instance
 
-    Internet
-        │
-        ▼
-┌─────────────────────┐
-│ Application Load │
-│ Balancer (ALB) │
-└─────────┬───────────┘
-│
-▼
-┌─────────────────────┐
-│ Target Group │
-│ (Health Checks) │
-└─────────┬───────────┘
-│
-▼
-┌─────────────────────┐
-│ Auto Scaling Group │
-│ (Multi-AZ) │
-└───────┬───────┬─────┘
-│ │
-▼ ▼
-EC2 Instance EC2 Instance
 
 ---
 
