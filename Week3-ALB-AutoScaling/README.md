@@ -26,21 +26,28 @@ This lab focuses on designing **highly available and fault-tolerant compute arch
 Demonstrates how to design a resilient compute layer that automatically scales with demand and recovers from instance failures without downtime.
 
 ---
-```mermaid
-flowchart TB
-    Internet[Internet]
-    ALB[Application Load Balancer]
-    TG[Target Group<br/>(Health Checks)]
-    ASG[Auto Scaling Group]
-    EC2A[EC2 Instance]
-    EC2B[EC2 Instance]
 
-    Internet --> ALB
-    ALB --> TG
-    TG --> ASG
-    ASG --> EC2A
-    ASG --> EC2B
-```
+                    +---------------+
+                    |   Internet    |
+                    +---------------+
+                            |
+                            v
+            +----------------------------------+
+            |  Application Load Balancer (ALB)|
+            +----------------------------------+
+                            |
+                            v
+            +----------------------------------+
+            |     Target Group (HTTP :80)      |
+            |        Health Checks             |
+            +----------------------------------+
+                    |                   |
+                    v                   v
+        +--------------------+   +--------------------+
+        |    EC2 Instance    |   |    EC2 Instance    |
+        | (Auto Scaling)     |   | (Auto Scaling)     |
+        +--------------------+   +--------------------+
+
                                      
 
 ---
