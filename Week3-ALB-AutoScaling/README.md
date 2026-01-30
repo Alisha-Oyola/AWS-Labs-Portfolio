@@ -26,36 +26,17 @@ This lab focuses on designing **highly available and fault-tolerant compute arch
 Demonstrates how to design a resilient compute layer that automatically scales with demand and recovers from instance failures without downtime.
 
 ---
-+----------------+
-|   Internet     |
-|   Traffic      |
-+--------+-------+
-         |
-         v
-+----------------+
-| Application    |
-| Load Balancer  |
-| (ALB)          |
-+--------+-------+
-         |
-         v
-+----------------+
-| Target Group   |
-| Health Checks  |
-+--------+-------+
-         |
-         v
-+----------------+
-| Auto Scaling   |
-| Group          |
-| (Multi-AZ)     |
-+--------+-------+
-         |
-         v
-+----------------+
-| EC2 Instances  |
-| Launch Template|
-+----------------+
+flowchart TD
+    A[Internet Traffic]
+    B[Application Load Balancer<br/>(ALB)]
+    C[Target Group<br/>Health Checks]
+    D[Auto Scaling Group<br/>(Multi-AZ)]
+    E[EC2 Instances<br/>Launch Template]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 
 ---
 
